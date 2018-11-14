@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 import datetime
 # Create your models here.
 
@@ -9,6 +10,7 @@ class Recruit(models.Model):
     place = models.CharField('근무지', max_length=255)
     career = models.CharField('경력 구분', max_length=255)
     detail = models.CharField('특이사항', max_length=255)
+    shoot = models.DateField('발송일', blank=True, null=True, default=timezone.now)
 
     def due(self):
         if not self.duedate:
