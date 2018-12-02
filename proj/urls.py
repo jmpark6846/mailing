@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from mail import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.mail_detail, name='index'),
+    path('load/', views.load_file, name='load'),
+    path('load_images/', views.load_images, name='load_images')
 ]
